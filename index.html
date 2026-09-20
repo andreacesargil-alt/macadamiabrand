@@ -40,6 +40,10 @@
       text-decoration: none;
     }
 
+    img {
+      max-width: 100%;
+    }
+
     /* NAV */
 
     nav {
@@ -55,9 +59,16 @@
     }
 
     .brand {
-      letter-spacing: .25em;
-      font-size: 17px;
-      font-weight: 400;
+      display: flex;
+      align-items: center;
+    }
+
+    .brand img {
+      display: block;
+      width: 155px;
+      height: 48px;
+      object-fit: contain;
+      object-position: left center;
     }
 
     .nav-links {
@@ -82,7 +93,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 9vw;
+      padding: 8vw;
     }
 
     .eyebrow {
@@ -94,33 +105,30 @@
 
     h1 {
       font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(45px, 6vw, 90px);
-      line-height: .98;
+      font-size: clamp(45px, 5.5vw, 86px);
+      line-height: 1;
       font-weight: 400;
     }
 
     .hero-copy p {
-      max-width: 380px;
+      max-width: 400px;
       margin-top: 35px;
       font-size: 15px;
     }
 
     .hero-image {
-      background:
-        linear-gradient(rgba(111,143,156,.12), rgba(111,143,156,.12)),
-        var(--blush);
-      display: flex;
-      align-items: center;
-      justify-content: center;
       min-height: 650px;
+      overflow: hidden;
+      background: var(--blush);
     }
 
-    .placeholder {
-      text-align: center;
-      color: var(--blue);
-      font-size: 11px;
-      letter-spacing: .2em;
-      text-transform: uppercase;
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      min-height: 650px;
+      object-fit: cover;
+      object-position: center;
+      display: block;
     }
 
     /* ABOUT */
@@ -181,17 +189,23 @@
     .work-card {
       aspect-ratio: 3 / 4;
       background: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: var(--blue);
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: .18em;
+      overflow: hidden;
     }
 
     .work-card:nth-child(2) {
       margin-top: 65px;
+    }
+
+    .work-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .6s ease;
+    }
+
+    .work-card:hover img {
+      transform: scale(1.025);
     }
 
     /* ATELIER */
@@ -206,7 +220,7 @@
     }
 
     .atelier-intro {
-      max-width: 560px;
+      max-width: 600px;
       margin: auto;
     }
 
@@ -227,6 +241,7 @@
       color: var(--pink);
       font-size: 10px;
       letter-spacing: .15em;
+      text-transform: uppercase;
     }
 
     .instagram-button {
@@ -238,7 +253,7 @@
       text-transform: uppercase;
     }
 
-    /* ANDREA */
+    /* FOUNDER */
 
     .founder {
       background: var(--teal);
@@ -249,7 +264,7 @@
     }
 
     .founder-image {
-      background: rgba(255,255,255,.12);
+      background: rgba(255,255,255,.13);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -290,17 +305,18 @@
     }
 
     .monogram {
-      width: 90px;
-      height: 90px;
-      border: 1px solid var(--blue);
-      border-radius: 50%;
+      width: 110px;
+      height: 110px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--blue);
-      margin-bottom: 35px;
-      font-family: Georgia, serif;
-      font-size: 30px;
+      margin-bottom: 30px;
+    }
+
+    .monogram img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
 
     .contact h2 {
@@ -329,9 +345,16 @@
       text-transform: uppercase;
     }
 
+    /* MOBILE */
+
     @media (max-width: 760px) {
+
       nav {
         padding: 0 25px;
+      }
+
+      .brand img {
+        width: 130px;
       }
 
       .nav-links {
@@ -351,6 +374,10 @@
         min-height: 65vh;
       }
 
+      .hero-image img {
+        min-height: 65vh;
+      }
+
       .about {
         grid-template-columns: 1fr;
         padding: 90px 35px;
@@ -362,6 +389,11 @@
 
       .work-header {
         display: block;
+      }
+
+      .work-header .section-label:last-child {
+        display: block;
+        margin-top: 20px;
       }
 
       .work-grid {
@@ -396,14 +428,22 @@
         flex-direction: column;
         gap: 15px;
       }
+
+      footer {
+        gap: 20px;
+      }
     }
   </style>
 </head>
 
+
 <body>
 
   <nav>
-    <a href="#" class="brand">MACADAMIA</a>
+
+    <a href="#" class="brand">
+      <img src="images/logo.png" alt="Macadamia">
+    </a>
 
     <div class="nav-links">
       <a href="#about">About</a>
@@ -412,35 +452,60 @@
       <a href="#andrea">Andrea</a>
       <a href="#contact">Contact</a>
     </div>
+
   </nav>
+
 
   <main>
 
-    <section class="hero">
-      <div class="hero-copy">
-        <span class="eyebrow">Independent fashion brand · Mexico City</span>
+    <!-- HERO -->
 
-        <h1>Couture<br>for the rebel<br>& romantic.</h1>
+    <section class="hero">
+
+      <div class="hero-copy">
+
+        <span class="eyebrow">
+          Independent fashion brand · Mexico City
+        </span>
+
+        <h1>
+          Couture<br>
+          for the rebel<br>
+          & romantic.
+        </h1>
 
         <p>
           Fashion, textile experimentation and made-to-measure pieces
           created around the identity of the person who wears them.
         </p>
+
       </div>
 
       <div class="hero-image">
-        <span class="placeholder">Hero image coming next</span>
+        <img
+          src="images/hero.jpg"
+          alt="Macadamia Bridal Couture">
       </div>
+
     </section>
 
 
+    <!-- ABOUT -->
+
     <section class="about" id="about">
+
       <div>
-        <span class="section-label">Macadamia · Since 2010</span>
+        <span class="section-label">
+          Macadamia · Since 2010
+        </span>
       </div>
 
       <div class="about-text">
-        <h2>Every person has<br>their own way of dressing.</h2>
+
+        <h2>
+          Every person has<br>
+          their own way of dressing.
+        </h2>
 
         <p>
           Macadamia is an independent fashion brand founded in 2010
@@ -449,48 +514,84 @@
           creating garments that reflect the personality, stories and
           identity of each person.
         </p>
+
       </div>
+
     </section>
 
+
+    <!-- SELECTED WORK -->
 
     <section class="work" id="work">
 
       <div class="work-header">
+
         <div>
           <span class="section-label">Archive</span>
           <h2 class="section-title">Selected Work</h2>
         </div>
 
-        <span class="section-label">Bridal · Eveningwear · Fashion</span>
+        <span class="section-label">
+          Bridal · Eveningwear · Fashion
+        </span>
+
       </div>
 
+
       <div class="work-grid">
-        <div class="work-card">Image 01</div>
-        <div class="work-card">Image 02</div>
-        <div class="work-card">Image 03</div>
+
+        <div class="work-card">
+          <img
+            src="images/work-01.jpg"
+            alt="Macadamia selected work">
+        </div>
+
+        <div class="work-card">
+          <img
+            src="images/work-02.jpg"
+            alt="Macadamia selected work">
+        </div>
+
+        <div class="work-card">
+          <img
+            src="images/work-03.jpg"
+            alt="Macadamia selected work">
+        </div>
+
       </div>
 
     </section>
 
 
+    <!-- INSTAGRAM / CURRENT WORK -->
+
     <section class="atelier" id="atelier">
 
-      <span class="section-label">Current work</span>
-      <h2 class="section-title">From the Atelier</h2>
+      <span class="section-label">
+        Current work
+      </span>
+
+      <h2 class="section-title">
+        From the Atelier
+      </h2>
 
       <p class="atelier-intro">
         Process, fittings, weddings, textiles, details and everything
         happening around Macadamia today.
       </p>
 
+
       <div class="instagram-grid">
+
         <div class="insta">Instagram</div>
         <div class="insta">Instagram</div>
         <div class="insta">Instagram</div>
         <div class="insta">Instagram</div>
         <div class="insta">Instagram</div>
         <div class="insta">Instagram</div>
+
       </div>
+
 
       <a
         class="instagram-button"
@@ -503,6 +604,8 @@
     </section>
 
 
+    <!-- ANDREA -->
+
     <section class="founder" id="andrea">
 
       <div class="founder-image">
@@ -510,28 +613,45 @@
       </div>
 
       <div class="founder-copy">
-        <span class="eyebrow">Founder & Designer</span>
 
-        <h2>Andrea<br>César</h2>
+        <span class="eyebrow">
+          Founder & Designer
+        </span>
+
+        <h2>
+          Andrea<br>
+          César
+        </h2>
 
         <p>
           Textile designer, strategic designer and founder of Macadamia.
           Her practice connects fashion, experimentation, craftsmanship
           and human-centered design.
         </p>
+
       </div>
 
     </section>
 
 
+    <!-- CONTACT -->
+
     <section class="contact" id="contact">
 
-      <div class="monogram">M</div>
+      <div class="monogram">
+        <img
+          src="images/monogram.png"
+          alt="Macadamia">
+      </div>
 
-      <span class="section-label">Mexico City</span>
+      <span class="section-label">
+        Mexico City
+      </span>
+
       <h2>Macadamia</h2>
 
       <div class="contact-links">
+
         <a
           href="https://www.instagram.com/macadamia_brand/"
           target="_blank"
@@ -542,6 +662,7 @@
         <a href="mailto:hola@macadamiabrand.mx">
           Email
         </a>
+
       </div>
 
     </section>
@@ -550,8 +671,15 @@
 
 
   <footer>
-    <span>Macadamia © 2026</span>
-    <span>Independent Fashion Brand</span>
+
+    <span>
+      Macadamia © 2026
+    </span>
+
+    <span>
+      Independent Fashion Brand
+    </span>
+
   </footer>
 
 </body>
