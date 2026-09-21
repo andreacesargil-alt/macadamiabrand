@@ -1,1239 +1,200 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Macadamia — Independent Fashion Brand</title>
-
-  <meta
-    name="description"
-    content="Macadamia is an independent fashion brand founded by textile designer Andrea César in Mexico City."
-  >
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Macadamia is an independent fashion brand by Andrea César. Bridal couture, textile experimentation and made-to-measure pieces in Mexico City.">
+  <title>Macadamia — For the rebel &amp; romantic</title>
   <style>
-
-    :root {
-      --pink: #d8a0a3;
-      --blush: #f5e9e2;
-      --blue: #6f8f9c;
-      --teal: #628985;
-      --ink: #303030;
-      --white: #ffffff;
-      --line: #e8e4e1;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      color: var(--ink);
-      background: var(--white);
-      font-weight: 300;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
-    }
-
-    /* NAVIGATION */
-
-    .site-nav {
-      height: 92px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 5vw;
-      background: rgba(255, 255, 255, 0.96);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-    }
-
-    .brand img {
-      width: 175px;
-      height: 65px;
-      object-fit: contain;
-      object-position: left center;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 34px;
-      font-size: 11px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-    }
-
-    .nav-links a {
-      transition: opacity 0.25s ease;
-    }
-
-    .nav-links a:hover {
-      opacity: 0.45;
-    }
-
-    /* GLOBAL */
-
-    .section-label {
-      display: block;
-      font-size: 10px;
-      line-height: 1.4;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--blue);
-    }
-
-    .section-title {
-      margin-top: 8px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(40px, 4.3vw, 64px);
-      line-height: 1.03;
-      font-weight: 400;
-      color: var(--blue);
-    }
-
-    /* HERO */
-
-    .hero {
-      display: grid;
-      grid-template-columns: 45% 55%;
-      min-height: calc(100vh - 92px);
-    }
-
-    .hero-copy {
-      background: var(--pink);
-      color: var(--white);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 8vw;
-    }
-
-    .hero-eyebrow {
-      margin-bottom: 30px;
-      font-size: 10px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-    }
-
-    .hero h1 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(50px, 5.5vw, 88px);
-      line-height: 0.98;
-      font-weight: 400;
-    }
-
-    .hero-copy p {
-      max-width: 410px;
-      margin-top: 35px;
-      font-size: 15px;
-      line-height: 1.7;
-    }
-
-    .hero-image {
-      min-height: 650px;
-      overflow: hidden;
-      background: var(--blush);
-    }
-
-    .hero-image img {
-      width: 100%;
-      height: 100%;
-      min-height: 650px;
-      object-fit: cover;
-      object-position: center;
-    }
-
-    /* ABOUT */
-
-    .about {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 8vw;
-      padding: 125px 9vw;
-    }
-
-    .about-symbol {
-      position: relative;
-      width: clamp(140px, 15vw, 210px);
-      aspect-ratio: 310 / 364;
-      overflow: hidden;
-      margin: 38px auto 0;
-    }
-
-    .about-symbol img {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      width: 383.23%;
-      max-width: none;
-      height: auto;
-      transform: translateX(-50%);
-    }
-
-    .about-copy {
-      max-width: 780px;
-    }
-
-    .about-copy h2 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(40px, 4.3vw, 64px);
-      line-height: 1.05;
-      font-weight: 400;
-      color: var(--blue);
-    }
-
-    .about-copy p {
-      max-width: 650px;
-      margin-top: 35px;
-      font-size: 16px;
-      line-height: 1.75;
-    }
-
-    /* SELECTED WORK */
-
-    .work {
-      padding: 90px 0 100px;
-      background: var(--blush);
-      overflow: hidden;
-    }
-
-    .work-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      padding: 0 5vw;
-      margin-bottom: 48px;
-    }
-
-    .work-meta {
-      display: flex;
-      align-items: center;
-      gap: 35px;
-    }
-
-    .scroll-note {
-      font-size: 9px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--blue);
-    }
-
-    .work-track {
-      display: flex;
-      gap: 12px;
-      overflow-x: auto;
-      overflow-y: hidden;
-      padding: 0 5vw 28px;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: thin;
-      scrollbar-color: var(--pink) transparent;
-    }
-
-    .work-track::-webkit-scrollbar {
-      height: 5px;
-    }
-
-    .work-track::-webkit-scrollbar-track {
-      background: transparent;
-    }
-
-    .work-track::-webkit-scrollbar-thumb {
-      background: var(--pink);
-    }
-
-    .work-item {
-      flex: 0 0 clamp(260px, 23vw, 365px);
-      aspect-ratio: 4 / 5;
-      overflow: hidden;
-      background: var(--white);
-      scroll-snap-align: start;
-    }
-
-    .work-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.6s ease;
-    }
-
-    .work-item:hover img {
-      transform: scale(1.025);
-    }
-
-    .archive-card {
-      flex: 0 0 clamp(260px, 23vw, 365px);
-      aspect-ratio: 4 / 5;
-      padding: 45px;
-      background: var(--pink);
-      color: var(--white);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      scroll-snap-align: start;
-    }
-
-    .archive-card-label {
-      margin-bottom: 15px;
-      font-size: 9px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-    }
-
-    .archive-card h3 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 34px;
-      line-height: 1.05;
-      font-weight: 400;
-    }
-
-    .archive-card p {
-      margin-top: 20px;
-      font-size: 13px;
-    }
-
-    /* ATELIER */
-
-    .atelier {
-      width: 100%;
-      padding: 115px 6vw;
-    }
-
-    .atelier-header {
-      display: grid;
-      grid-template-columns: 0.8fr 1.7fr;
-      gap: 7vw;
-      align-items: end;
-      margin-bottom: 55px;
-    }
-
-    .atelier-description p {
-      max-width: 530px;
-      font-size: 15px;
-      line-height: 1.7;
-    }
-
-    .atelier-grid {
-      width: 100%;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 9px;
-    }
-
-    .atelier-photo {
-      aspect-ratio: 4 / 5;
-      overflow: hidden;
-      background: var(--blush);
-    }
-
-    .atelier-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.6s ease;
-    }
-
-    .atelier-photo:hover img {
-      transform: scale(1.025);
-    }
-
-    /* INSTAGRAM */
-
-    .instagram-card {
-      width: 100%;
-      margin-top: 9px;
-      padding: 48px 5vw;
-      background: var(--blush);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 50px;
-    }
-
-    .instagram-card h3 {
-      margin-top: 4px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(28px, 3vw, 42px);
-      font-weight: 400;
-      color: var(--blue);
-    }
-
-    .instagram-card p {
-      max-width: 440px;
-      margin-top: 8px;
-      font-size: 14px;
-    }
-
-    .instagram-button {
-      white-space: nowrap;
-      padding-bottom: 5px;
-      border-bottom: 1px solid var(--ink);
-      font-size: 10px;
-      letter-spacing: 0.17em;
-      text-transform: uppercase;
-      transition: opacity 0.25s ease;
-    }
-
-    .instagram-button:hover {
-      opacity: 0.5;
-    }
-
-    /* ANDREA */
-
-    .founder {
-      width: 100%;
-      display: grid;
-      grid-template-columns: 55% 45%;
-      min-height: 720px;
-      background: var(--teal);
-      color: var(--white);
-    }
-
-    .founder-image {
-      min-height: 720px;
-      overflow: hidden;
-    }
-
-    .founder-image img {
-      width: 100%;
-      height: 100%;
-      min-height: 720px;
-      object-fit: cover;
-      object-position: center;
-    }
-
-    .founder-copy {
-      padding: 8vw 7vw;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .founder-label {
-      margin-bottom: 20px;
-      font-size: 10px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-    }
-
-    .founder-copy h2 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(48px, 5vw, 74px);
-      line-height: 0.95;
-      font-weight: 400;
-    }
-
-    .founder-copy p {
-      max-width: 450px;
-      margin-top: 35px;
-      font-size: 15px;
-      line-height: 1.7;
-    }
-
-    /* CONTACT */
-
-    .contact {
-      width: 100%;
-      min-height: 440px;
-      padding: 75px 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
-
-    .contact h2 {
-      width: min(360px, 78vw);
-      margin-top: 28px;
-      line-height: 0;
-    }
-
-    .contact-logo {
-      width: 100%;
-      height: auto;
-    }
-
-    .contact-links {
-      display: flex;
-      gap: 35px;
-      margin-top: 28px;
-      font-size: 10px;
-      letter-spacing: 0.17em;
-      text-transform: uppercase;
-    }
-
-    .contact-links a {
-      padding-bottom: 4px;
-      border-bottom: 1px solid transparent;
-      transition:
-        opacity 0.25s ease,
-        border-color 0.25s ease;
-    }
-
-    .contact-links a:hover {
-      opacity: 0.6;
-      border-color: var(--ink);
-    }
-
-    /* FOOTER */
-
-    footer {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      padding: 25px 5vw;
-      border-top: 1px solid var(--line);
-      font-size: 9px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-
-    /* MOBILE */
-
-    @media (max-width: 760px) {
-
-      .site-nav {
-        height: 78px;
-        padding: 0 22px;
-      }
-
-      .brand img {
-        width: 135px;
-        height: 58px;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      .hero {
-        grid-template-columns: 1fr;
-        min-height: auto;
-      }
-
-      .hero-copy {
-        min-height: 58vh;
-        padding: 65px 32px;
-      }
-
-      .hero-image,
-      .hero-image img {
-        min-height: 62vh;
-      }
-
-      .about {
-        grid-template-columns: 1fr;
-        gap: 35px;
-        padding: 85px 30px;
-      }
-
-      .about-symbol {
-        width: 125px;
-        margin: 28px 0 0;
-      }
-
-      .work {
-        padding: 75px 0;
-      }
-
-      .work-header {
-        display: block;
-        padding: 0 25px;
-      }
-
-      .work-meta {
-        margin-top: 18px;
-        justify-content: space-between;
-      }
-
-      .work-track {
-        padding-left: 25px;
-        padding-right: 25px;
-      }
-
-      .work-item,
-      .archive-card {
-        flex-basis: 78vw;
-      }
-
-      .atelier {
-        padding: 85px 25px;
-      }
-
-      .atelier-header {
-        grid-template-columns: 1fr;
-        gap: 22px;
-      }
-
-      .atelier-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .instagram-card {
-        display: block;
-        padding: 38px 25px;
-      }
-
-      .instagram-button {
-        display: inline-block;
-        margin-top: 27px;
-      }
-
-      .founder {
-        grid-template-columns: 1fr;
-        min-height: auto;
-      }
-
-      .founder-image,
-      .founder-image img {
-        min-height: 600px;
-      }
-
-      .founder-copy {
-        padding: 75px 32px;
-      }
-
-      .contact-links {
-        flex-direction: column;
-        gap: 15px;
-      }
-
-      footer {
-        gap: 25px;
-      }
-    }
-
+    :root { --white:#fff; --petal:#f5e9e2; --rose:#d8a0a3; --blue:#6f8f9c; --deep:#385864; --ink:#303030; --display:Didot,"Bodoni MT","Times New Roman",serif; --body:"Avenir Next",Avenir,"Helvetica Neue",sans-serif; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; scroll-padding-top:24px; }
+    body { margin:0; background:var(--white); color:var(--ink); font:16px/1.65 var(--body); }
+    a { color:inherit; text-underline-offset:5px; }
+    img { display:block; max-width:100%; height:auto; }
+    button { font:inherit; cursor:pointer; }
+    button,a { -webkit-tap-highlight-color:transparent; }
+    :focus-visible { outline:3px solid var(--deep); outline-offset:6px; }
+    h1,h2,h3,p,figure { margin:0; }
+    h1,h2,h3 { font-family:var(--display); font-weight:400; line-height:1.04; }
+    h2 { font-size:clamp(40px,5vw,72px); color:var(--deep); }
+    p { max-width:60ch; }
+    .skip { position:absolute; top:-100px; padding:12px; background:white; z-index:10; }
+    .skip:focus { top:8px; }
+    .wrap { width:min(1360px,92%); margin-inline:auto; }
+    .site-header { display:flex; align-items:center; justify-content:space-between; gap:24px; min-height:110px; }
+    .brand { width:132px; flex-shrink:0; }
+    .desktop-nav { display:flex; gap:32px; align-items:center; font-size:14px; }
+    .desktop-nav a { text-decoration:none; }
+    .desktop-nav a:hover { text-decoration:underline; }
+    .desktop-nav .contact-link { border-bottom:1px solid var(--deep); padding:8px 0; color:var(--deep); }
+    .mobile-nav { display:none; }
+    .hero { display:grid; grid-template-columns:45% 55%; min-height:calc(100svh - 110px); background:var(--rose); }
+    .hero-copy { align-self:center; min-width:0; padding:clamp(28px,5vh,56px) 10%; color:var(--white); font-family:"Helvetica Neue",Helvetica,Arial,sans-serif; }
+    .hero-copy .location { font-size:10px; letter-spacing:.22em; text-transform:uppercase; margin-bottom:24px; }
+    .hero h1 { color:var(--white); font-family:Georgia,"Times New Roman",serif; font-size:clamp(42px,5.5vw,88px); line-height:.98; letter-spacing:normal; }
+    .hero-copy p { margin-top:24px; max-width:36ch; font-size:15px; line-height:1.7; }
+    .hero-copy a { display:inline-block; margin-top:24px; color:var(--white); font-size:14px; }
+    .hero-photo { position:relative; min-width:0; min-height:0; overflow:hidden; }
+    .hero-photo img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; }
+    .about { display:grid; grid-template-columns: .7fr 1.5fr; align-items:center; gap:9%; padding:65px 7% 90px; }
+    .identity { text-align:center; color:var(--deep); font-size:13px; }
+    /* Display only the existing symbol from the full logo, without changing the asset. */
+    .symbol { position:relative; width:150px; aspect-ratio:310/364; overflow:hidden; margin:0 auto 24px; }
+    .symbol img { position:absolute; left:50%; top:0; width:383.23%; max-width:none; transform:translateX(-50%); }
+    .about h2 { font-size:clamp(35px,4vw,58px); max-width:18ch; }
+    .about p { margin-top:26px; font-size:15px; }
+    .archive { background:var(--petal); padding:72px 0 60px; }
+    .section-head { display:flex; align-items:end; justify-content:space-between; gap:24px; margin-bottom:32px; }
+    .section-head p { margin-top:15px; font-size:14px; }
+    .gallery-controls { display:flex; gap:10px; flex-shrink:0; }
+    .gallery-controls button { display:grid; place-items:center; width:46px; height:46px; border:1px solid var(--deep); border-radius:50%; background:transparent; color:var(--deep); font-size:24px; line-height:1; }
+    .gallery-controls button:disabled { opacity:.35; cursor:default; }
+    .gallery-controls button:hover:not(:disabled) { background:var(--deep); color:white; }
+    .track { display:flex; gap:18px; overflow-x:auto; scroll-snap-type:x mandatory; padding:0 4% 22px; scrollbar-color:var(--deep) transparent; scrollbar-width:thin; }
+    .work { flex:0 0 clamp(240px,27vw,385px); scroll-snap-align:start; }
+    .work button { border:0; padding:0; background:transparent; display:block; width:100%; }
+    .work img { width:100%; aspect-ratio:4/5; object-fit:contain; }
+    .work-wide { flex-basis:clamp(449.4px,50.56vw,721px); }
+    .work-wide img { aspect-ratio:6016/4016; }
+    .work figcaption { margin-top:12px; color:var(--deep); font-size:13px; }
+    .archive-note { margin-top:24px; font-size:13px; color:var(--deep); }
+    .atelier { padding:100px 0; }
+    .atelier .section-head { align-items:center; margin-bottom:40px; }
+    .atelier .section-head p { max-width:40ch; margin:0; }
+    .process { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
+    .process img { width:100%; aspect-ratio:4/5; object-fit:cover; }
+    .process figure:nth-child(even) { margin-top:48px; }
+    .process figcaption { font-size:13px; margin-top:12px; color:var(--deep); }
+    .instagram { display:flex; justify-content:space-between; align-items:center; gap:24px; margin-top:45px; font-size:14px; }
+    .instagram a { color:var(--deep); }
+    .founder { display:grid; grid-template-columns:1fr 1fr; background:var(--deep); color:white; }
+    .founder > img { width:100%; height:100%; max-height:710px; object-fit:cover; }
+    .founder-copy { align-self:center; padding:70px 14%; }
+    .founder-copy h2 { color:white; font-size:clamp(58px,6.8vw,100px); }
+    .founder-copy .role { margin-top:20px; font-size:14px; }
+    .founder-copy p { margin-top:30px; font-size:15px; }
+    .founder-copy a { display:inline-block; margin-top:30px; }
+    .contact { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; padding:100px 7%; }
+    .contact h2 { max-width:350px; }
+    .contact-copy h3 { font-size:40px; color:var(--deep); }
+    .contact-copy p { margin-top:16px; font-size:15px; }
+    .contact-links { display:flex; flex-wrap:wrap; gap:24px; margin-top:24px; font-size:14px; }
+    footer { display:flex; justify-content:space-between; gap:20px; padding:25px 0; border-top:1px solid #d5dfe2; font-size:12px; color:var(--deep); }
+    dialog { padding:0; border:0; background:var(--white); max-width:min(92vw,900px); max-height:92vh; }
+    dialog::backdrop { background:rgba(30,40,45,.88); }
+    .lightbox-inner { position:relative; padding:16px; }
+    .lightbox-inner img { max-height:78vh; width:auto; margin:auto; object-fit:contain; }
+    .lightbox-inner p { font-size:13px; padding-top:12px; }
+    .close { position:absolute; top:24px; right:24px; background:white; color:var(--deep); border:1px solid var(--deep); border-radius:50%; width:42px; height:42px; font-size:24px; }
+    @media(max-width:760px) {
+      .wrap { width:90%; } .site-header { min-height:94px; } .brand { width:105px; }
+      .desktop-nav { display:none; } .mobile-nav { display:block; position:relative; }
+      .mobile-nav summary { cursor:pointer; padding:12px 0 12px 20px; color:var(--deep); }
+      .mobile-nav nav { position:absolute; right:0; top:50px; z-index:3; background:white; border:1px solid #d5dfe2; padding:16px 24px; min-width:170px; }
+      .mobile-nav a { display:block; padding:10px 0; text-decoration:none; }
+      .hero { grid-template-columns:1fr; min-height:0; }
+      .hero-copy { padding:40px 8%; }
+      .hero h1 { font-size:clamp(38px,10vw,64px); }
+      .hero-copy .location { margin-bottom:22px; }
+      .hero-copy p { margin-top:24px; }
+      .hero-photo { max-width:100%; aspect-ratio:660/1020; }
+      .about { grid-template-columns:1fr; gap:32px; padding:40px 0 65px; }
+      .identity { display:flex; align-items:center; justify-content:start; gap:24px; text-align:left; }
+      .symbol { width:70px; margin:0; flex-shrink:0; } .about h2 { max-width:22ch; }
+      .archive { padding:52px 0 38px; } .section-head { gap:12px; } .section-head h2 { font-size:42px; }
+      .gallery-controls { gap:6px; } .gallery-controls button { width:40px; height:40px; }
+      .work { flex-basis:77vw; } .work-wide { flex-basis:90vw; } .work-wide img { height:96.25vw; aspect-ratio:auto; } .track { padding-left:5%; padding-right:5%; gap:12px; }
+      .atelier { padding:65px 0; } .atelier .section-head { display:block; } .atelier .section-head p { margin-top:20px; }
+      .process { grid-template-columns:1fr 1fr; gap:24px 12px; } .process figure:nth-child(even) { margin-top:28px; }
+      .instagram { align-items:start; flex-direction:column; gap:12px; }
+      .founder { grid-template-columns:1fr; } .founder > img { max-height:520px; aspect-ratio:1/1; }
+      .founder-copy { padding:50px 8%; } .founder-copy h2 { font-size:64px; }
+      .contact { grid-template-columns:1fr; padding:65px 3%; gap:45px; } .contact h2 { width:260px; max-width:100%; }
+      .contact-copy h3 { font-size:36px; } footer { font-size:11px; }
+    }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
   </style>
-
 </head>
-
 <body>
-
-  <!-- ==========================================
-       NAVIGATION
-       ========================================== -->
-
-  <nav class="site-nav">
-
-    <a
-      class="brand"
-      href="#"
-      aria-label="Macadamia home"
-    >
-      <img
-        src="images/logo.png"
-        alt="Macadamia"
-      >
-    </a>
-
-    <div class="nav-links">
-
-      <a href="#about">
-        About
-      </a>
-
-      <a href="#work">
-        Work
-      </a>
-
-      <a href="#atelier">
-        Atelier
-      </a>
-
-      <a href="#andrea">
-        Andrea
-      </a>
-
-      <a href="#contact">
-        Contact
-      </a>
-
-    </div>
-
-  </nav>
-
-
-  <main>
-
-
-    <!-- ==========================================
-         HERO
-         ========================================== -->
-
-    <section class="hero">
-
-      <div class="hero-copy">
-
-        <span class="hero-eyebrow">
-          Independent fashion brand · Mexico City
-        </span>
-
-        <h1>
-          Couture<br>
-          for the rebel<br>
-          &amp; romantic.
-        </h1>
-
-        <p>
-          Fashion, textile experimentation and made-to-measure
-          pieces created around the identity of the person
-          who wears them.
-        </p>
-
-      </div>
-
-
-      <div class="hero-image">
-
-        <img
-          src="images/hero.jpg"
-          alt="Macadamia Bridal Couture"
-        >
-
-      </div>
-
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header wrap">
+    <a class="brand" href="#" aria-label="Macadamia home"><img src="images/logo.png" width="1188" height="692" alt="Macadamia Bridal Couture"></a>
+    <nav class="desktop-nav" aria-label="Main navigation"><a href="#about">Our story</a><a href="#work">Selected work</a><a href="#atelier">The atelier</a><a href="#andrea">Andrea</a><a class="contact-link" href="#contact">Let’s create something</a></nav>
+    <details class="mobile-nav"><summary>Menu</summary><nav aria-label="Mobile navigation"><a href="#about">Our story</a><a href="#work">Selected work</a><a href="#atelier">The atelier</a><a href="#andrea">Andrea</a><a href="#contact">Contact</a></nav></details>
+  </header>
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy"><div class="location">Independent fashion brand · Mexico City</div><h1 id="hero-title">Couture<br>for the rebel<br>&amp; romantic.</h1><p>Fashion, textile experimentation and made-to-measure pieces created around the identity of the person who wears them.</p><a href="#work">Explore selected work</a></div>
+      <div class="hero-photo"><img src="images/hero.jpg" width="660" height="1020" alt="Macadamia bridal couture against pink drapery and foliage" fetchpriority="high"></div>
     </section>
-
-
-    <!-- ==========================================
-         ABOUT
-         ========================================== -->
-
-    <section
-      class="about"
-      id="about"
-    >
-
-      <div>
-
-        <span class="section-label">
-          Macadamia · Since 2010
-        </span>
-
-        <div class="about-symbol">
-          <img src="images/logo.png" alt="Símbolo de Macadamia">
-        </div>
-
-      </div>
-
-
-      <div class="about-copy">
-
-        <h2>
-          Every person has<br>
-          their own way of dressing.
-        </h2>
-
-        <p>
-          Macadamia is an independent fashion brand founded in 2010
-          by textile designer Andrea César. The project explores fashion
-          through experimentation, craftsmanship and individuality,
-          creating garments that reflect the personality, stories
-          and identity of each person.
-        </p>
-
-      </div>
-
+    <section class="about wrap" id="about" aria-labelledby="about-title">
+      <div class="identity"><div class="symbol"><img src="images/logo.png" alt="Macadamia symbol"></div><span>Mexico City<br>Creating since 2010</span></div>
+      <div><h2 id="about-title">Every person has<br>their own way of dressing.</h2><p>Founded by textile designer Andrea César, Macadamia explores fashion through experimentation, craftsmanship and individuality. Each garment reflects the personality, stories and identity of the person who wears it.</p></div>
     </section>
-
-
-    <!-- ==========================================
-         SELECTED WORK
-         ========================================== -->
-
-    <section
-      class="work"
-      id="work"
-    >
-
-      <div class="work-header">
-
-        <div>
-
-          <span class="section-label">
-            Archive
-          </span>
-
-          <h2 class="section-title">
-            Selected Work
-          </h2>
-
-        </div>
-
-
-        <div class="work-meta">
-
-          <span class="section-label">
-            Bridal · Eveningwear · Fashion
-          </span>
-
-          <span class="scroll-note">
-            Scroll →
-          </span>
-
-        </div>
-
+    <section class="archive" id="work" aria-labelledby="work-title">
+      <div class="section-head wrap"><div><h2 id="work-title">Selected work</h2><p>Bridal, eveningwear and fashion from our archive.</p></div><div class="gallery-controls"><button type="button" id="previous" aria-label="Previous photographs" aria-controls="gallery">&#8592;</button><button type="button" id="next" aria-label="Next photographs" aria-controls="gallery">&#8594;</button></div></div>
+      <div class="track" id="gallery" tabindex="0" role="region" aria-label="Selected work gallery, scroll horizontally">
+        <figure class="work"><button type="button" aria-label="View bridal editorial, photograph 1"><img loading="lazy" src="images/selected-01.jpg" alt="Bridal editorial, Macadamia archive photograph 1" width="1200" height="1500"></button><figcaption>Bridal editorial</figcaption></figure>
+<figure class="work"><button type="button" aria-label="View a macadamia bride, photograph 2"><img loading="lazy" src="images/selected-02.jpg" alt="A Macadamia bride, Macadamia archive photograph 2" width="1200" height="1500"></button><figcaption>A Macadamia bride</figcaption></figure>
+<figure class="work"><button type="button" aria-label="View fashion editorial, photograph 3"><img loading="lazy" src="images/selected-03.jpg" alt="Fashion editorial, Macadamia archive photograph 3" width="1200" height="1500"></button><figcaption>Fashion editorial</figcaption></figure>
+<figure class="work"><button type="button" aria-label="View a macadamia bride, photograph 4"><img loading="lazy" src="images/selected-04.jpg" alt="A Macadamia bride, Macadamia archive photograph 4" width="1200" height="1500"></button><figcaption>A Macadamia bride</figcaption></figure>
+<figure class="work"><button type="button" aria-label="View bridal editorial, photograph 5"><img loading="lazy" src="images/selected-05.jpg" alt="Bridal editorial, Macadamia archive photograph 5" width="1200" height="1500"></button><figcaption>Bridal editorial</figcaption></figure>
+<figure class="work work-wide"><button type="button" aria-label="View a wedding story, photograph 6"><img loading="lazy" src="images/selected-06-full.jpg" alt="Bride and groom kissing beneath an arch, complete wedding photograph" width="6016" height="4016"></button><figcaption>A wedding story</figcaption></figure>
+<figure class="work"><button type="button" aria-label="View fashion editorial, photograph 7"><img loading="lazy" src="images/selected-07.jpg" alt="Fashion editorial, Macadamia archive photograph 7" width="1200" height="1500"></button><figcaption>Fashion editorial</figcaption></figure>
+<figure class="work"><button type="button" aria-label="View a macadamia bride, photograph 8"><img loading="lazy" src="images/selected-08.jpg" alt="A Macadamia bride, Macadamia archive photograph 8" width="1200" height="1500"></button><figcaption>A Macadamia bride</figcaption></figure>
+<figure class="work"><button type="button" aria-label="View editorial detail, photograph 9"><img loading="lazy" src="images/selected-09.jpg" alt="Editorial detail, Macadamia archive photograph 9" width="1200" height="1500"></button><figcaption>Editorial detail</figcaption></figure>
+<figure class="work"><button type="button" aria-label="View a wedding story, photograph 10"><img loading="lazy" src="images/selected-10.jpg" alt="A wedding story, Macadamia archive photograph 10" width="1200" height="1500"></button><figcaption>A wedding story</figcaption></figure>
+<figure class="work"><button type="button" aria-label="View fashion editorial, photograph 11"><img loading="lazy" src="images/selected-11.jpg" alt="Fashion editorial, Macadamia archive photograph 11" width="1200" height="1500"></button><figcaption>Fashion editorial</figcaption></figure>
+<figure class="work"><button type="button" aria-label="View a macadamia bride, photograph 12"><img loading="lazy" src="images/selected-12.jpg" alt="A Macadamia bride, Macadamia archive photograph 12" width="1200" height="1500"></button><figcaption>A Macadamia bride</figcaption></figure>
       </div>
-
-
-      <!-- HORIZONTAL GALLERY -->
-
-      <div class="work-track">
-
-
-        <!-- 01 · EDITORIAL -->
-
-        <div class="work-item">
-
-          <img
-            src="images/selected-01.jpg"
-            alt="Macadamia editorial"
-          >
-
-        </div>
-
-
-        <!-- 02 · REAL BRIDE -->
-
-        <div class="work-item">
-
-          <img
-            src="images/selected-02.jpg"
-            alt="Macadamia bride"
-          >
-
-        </div>
-
-
-        <!-- 03 · EDITORIAL -->
-
-        <div class="work-item">
-
-          <img
-            src="images/selected-03.jpg"
-            alt="Macadamia editorial"
-          >
-
-        </div>
-
-
-        <!-- 04 · REAL BRIDE -->
-
-        <div class="work-item">
-
-          <img
-            src="images/selected-04.jpg"
-            alt="Macadamia bride"
-          >
-
-        </div>
-
-
-        <!-- 05 · EDITORIAL -->
-
-        <div class="work-item">
-
-          <img
-            src="images/selected-05.jpg"
-            alt="Macadamia editorial"
-          >
-
-        </div>
-
-
-        <!-- 06 · REAL WEDDING -->
-
-        <div class="work-item">
-
-          <img
-            src="images/selected-06.jpg"
-            alt="Macadamia wedding"
-          >
-
-        </div>
-
-
-        <!-- 07 · EDITORIAL -->
-
-        <div class="work-item">
-
-          <img
-            src="images/selected-07.jpg"
-            alt="Macadamia editorial"
-          >
-
-        </div>
-
-
-        <!-- 08 · REAL BRIDE -->
-
-        <div class="work-item">
-
-          <img
-            src="images/selected-08.jpg"
-            alt="Macadamia bride"
-          >
-
-        </div>
-
-
-        <!-- 09 · EDITORIAL DETAIL -->
-
-        <div class="work-item">
-
-          <img
-            src="images/selected-09.jpg"
-            alt="Macadamia editorial detail"
-          >
-
-        </div>
-
-
-        <!-- 10 · REAL WEDDING -->
-
-        <div class="work-item">
-
-          <img
-            src="images/selected-10.jpg"
-            alt="Macadamia wedding"
-          >
-
-        </div>
-
-
-        <!-- 11 · EDITORIAL -->
-
-        <div class="work-item">
-
-          <img
-            src="images/selected-11.jpg"
-            alt="Macadamia editorial"
-          >
-
-        </div>
-
-
-        <!-- 12 · REAL BRIDE -->
-
-        <div class="work-item">
-
-          <img
-            src="images/selected-12.jpg"
-            alt="Macadamia bride"
-          >
-
-        </div>
-
-
-        <!-- FINAL ARCHIVE CARD -->
-
-        <div class="archive-card">
-
-          <span class="archive-card-label">
-            Since 2010
-          </span>
-
-          <h3>
-            15+ years<br>
-            of Macadamia.
-          </h3>
-
-          <p>
-            Bridal couture, custom pieces
-            and stories made to be worn.
-          </p>
-
-        </div>
-
-
-      </div>
-
+      <p class="archive-note wrap">15+ years of Macadamia. Select a photograph to see it in full.</p>
     </section>
-
-    <!-- ==========================================
-         FROM THE ATELIER
-         ========================================== -->
-
-    <section
-      class="atelier"
-      id="atelier"
-    >
-
-      <div class="atelier-header">
-
-        <div>
-
-          <span class="section-label">
-            Current Work
-          </span>
-
-          <h2 class="section-title">
-            From the Atelier
-          </h2>
-
-        </div>
-
-
-        <div class="atelier-description">
-
-          <p>
-            From first sketches and textile details to fittings
-            and finished garments. A look inside the process
-            behind Macadamia.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <!-- ATELIER IMAGE GRID -->
-
-      <div class="atelier-grid">
-
-
-        <!-- SKETCH -->
-
-        <div class="atelier-photo">
-
-          <img
-            src="images/atelier-01.jpg"
-            alt="Macadamia design sketch"
-          >
-
-        </div>
-
-
-        <!-- MATERIALS / DETAILS -->
-
-        <div class="atelier-photo">
-
-          <img
-            src="images/atelier-02.jpg"
-            alt="Macadamia textile and handmade details"
-          >
-
-        </div>
-
-
-        <!-- GARMENT / MIRROR -->
-
-        <div class="atelier-photo">
-
-          <img
-            src="images/atelier-03.jpg"
-            alt="Macadamia garment at the atelier"
-          >
-
-        </div>
-
-
-        <!-- FITTING -->
-
-        <div class="atelier-photo">
-
-          <img
-            src="images/atelier-04.jpg"
-            alt="Macadamia fitting"
-          >
-
-        </div>
-
-
-      </div>
-
-
-      <!-- ========================================
-           INSTAGRAM
-           ======================================== -->
-
-      <div class="instagram-card">
-
-        <div>
-
-          <span class="section-label">
-            Follow the current work
-          </span>
-
-          <h3>
-            @macadamia_brand
-          </h3>
-
-          <p>
-            Weddings, fittings, process, details
-            and new work from the atelier.
-          </p>
-
-        </div>
-
-
-        <a
-          class="instagram-button"
-          href="https://www.instagram.com/macadamia_brand/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          See current work on Instagram →
-        </a>
-
-      </div>
-
-
+    <section class="atelier wrap" id="atelier" aria-labelledby="atelier-title">
+      <div class="section-head"><h2 id="atelier-title">From the atelier</h2><p>First sketches, textile details, fittings and finished garments. A look at the work behind each piece.</p></div>
+      <div class="process"><figure><img loading="lazy" src="images/atelier-01.jpg" alt="Design sketch from the Macadamia atelier"><figcaption>The first idea</figcaption></figure><figure><img loading="lazy" src="images/atelier-02.jpg" alt="Textile details and handwork"><figcaption>Material &amp; detail</figcaption></figure><figure><img loading="lazy" src="images/atelier-03.jpg" alt="Macadamia garment in the atelier"><figcaption>Taking shape</figcaption></figure><figure><img loading="lazy" src="images/atelier-04.jpg" alt="A fitting at Macadamia"><figcaption>The fitting</figcaption></figure></div>
+      <div class="instagram"><p>Follow the fittings, details and new work as they happen.</p><a href="https://www.instagram.com/macadamia_brand/" target="_blank" rel="noopener noreferrer">@macadamia_brand on Instagram</a></div>
     </section>
-
-
-    <!-- ==========================================
-         ANDREA CÉSAR
-         ========================================== -->
-
-    <section
-      class="founder"
-      id="andrea"
-    >
-
-
-      <!-- PHOTO -->
-
-      <div class="founder-image">
-
-        <img
-          src="images/andrea.jpg"
-          alt="Andrea César, founder and designer of Macadamia"
-        >
-
-      </div>
-
-
-      <!-- TEXT -->
-
-      <div class="founder-copy">
-
-        <span class="founder-label">
-          Founder &amp; Designer
-        </span>
-
-        <h2>
-          Andrea<br>
-          César
-        </h2>
-
-        <p>
-          Textile designer, strategic designer and founder of Macadamia.
-          Her practice connects fashion, experimentation,
-          craftsmanship and human-centered design.
-        </p>
-
-      </div>
-
-
-    </section>
-
-
-    <!-- ==========================================
-         CONTACT
-         ========================================== -->
-
-    <section
-      class="contact"
-      id="contact"
-    >
-
-
-      <span class="section-label">
-        Mexico City
-      </span>
-
-
-      <h2>
-        <img class="contact-logo" src="images/logo.png" alt="Macadamia Bridal Couture">
-      </h2>
-
-
-      <div class="contact-links">
-
-
-        <!-- INSTAGRAM -->
-
-        <a
-          href="https://www.instagram.com/macadamia_brand/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Instagram
-        </a>
-
-
-        <!-- WHATSAPP -->
-
-        <a
-          href="https://wa.me/525539336590"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          WhatsApp
-        </a>
-
-
-        <!-- EMAIL -->
-
-        <a
-          href="mailto:andreacesargil@gmail.com"
-        >
-          Email
-        </a>
-
-
-      </div>
-
-
-    </section>
-
-
+    <section class="founder" id="andrea" aria-labelledby="andrea-title"><img loading="lazy" src="images/andrea.jpg" alt="Andrea César, founder and designer of Macadamia" width="1320" height="1284"><div class="founder-copy"><h2 id="andrea-title">Andrea<br>César</h2><p class="role">Founder &amp; designer</p><p>Textile designer, strategic designer and founder of Macadamia. Her practice connects fashion, experimentation, craftsmanship and human-centered design.</p><a href="#contact">Start a conversation</a></div></section>
+    <section class="contact wrap" id="contact" aria-labelledby="contact-title"><h2 id="contact-title"><img src="images/logo.png" alt="Macadamia Bridal Couture" width="1188" height="692"></h2><div class="contact-copy"><h3>Something that feels like you.</h3><p>Tell us what you have in mind.<br>Made-to-measure in Mexico City.</p><div class="contact-links"><a href="https://wa.me/525539336590" target="_blank" rel="noopener noreferrer">WhatsApp</a><a href="mailto:andreacesargil@gmail.com">Email Andrea</a><a href="https://www.instagram.com/macadamia_brand/" target="_blank" rel="noopener noreferrer">Instagram</a></div></div></section>
   </main>
-
-
-  <!-- ==========================================
-       FOOTER
-       ========================================== -->
-
-  <footer>
-
-    <span>
-      Macadamia © 2026
-    </span>
-
-    <span>
-      Independent Fashion Brand
-    </span>
-
-  </footer>
-
-
+  <footer class="wrap"><span>Macadamia © 2026</span><span>Independent by design.</span></footer>
+  <dialog id="lightbox" aria-label="Selected work photograph"><div class="lightbox-inner"><button class="close" type="button" aria-label="Close photograph">×</button><img id="full-image" alt=""><p id="full-caption"></p></div></dialog>
+  <script>
+    const gallery = document.querySelector('#gallery');
+    const previous = document.querySelector('#previous');
+    const next = document.querySelector('#next');
+    const motion = matchMedia('(prefers-reduced-motion: reduce)');
+    function updateControls() {
+      previous.disabled = gallery.scrollLeft <= 2;
+      next.disabled = gallery.scrollLeft + gallery.clientWidth >= gallery.scrollWidth - 2;
+    }
+    function moveGallery(direction) {
+      const cards = [...gallery.querySelectorAll('.work')];
+      const origin = cards[0].getBoundingClientRect().left;
+      const positions = cards.map(card => card.getBoundingClientRect().left - origin);
+      const current = gallery.scrollLeft;
+      const target = direction > 0
+        ? positions.find(position => position > current + 3) ?? gallery.scrollWidth
+        : positions.filter(position => position < current - 3).pop() ?? 0;
+      gallery.scrollTo({ left:target, behavior:motion.matches ? 'instant' : 'smooth' });
+    }
+    previous.addEventListener('click', () => moveGallery(-1));
+    next.addEventListener('click', () => moveGallery(1));
+    gallery.addEventListener('scroll', updateControls, {passive:true});
+    window.addEventListener('resize', updateControls);
+    updateControls();
+    const lightbox = document.querySelector('#lightbox');
+    gallery.querySelectorAll('button').forEach(button => button.addEventListener('click', () => {
+      const source = button.querySelector('img');
+      document.querySelector('#full-image').src = source.src;
+      document.querySelector('#full-image').alt = source.alt;
+      document.querySelector('#full-caption').textContent = button.nextElementSibling.textContent;
+      lightbox.showModal();
+    }));
+    lightbox.querySelector('.close').addEventListener('click', () => lightbox.close());
+    lightbox.addEventListener('click', event => { if (event.target === lightbox) lightbox.close(); });
+    document.querySelectorAll('.mobile-nav a').forEach(link => link.addEventListener('click', () => { document.querySelector('.mobile-nav').open = false; }));
+  </script>
 </body>
-
 </html>
